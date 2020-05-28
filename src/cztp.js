@@ -3125,7 +3125,7 @@
                 //被选择时样式绘制
                 this.paintSelected = function (a) {
                     a.shadowBlur = 10,
-                        // a.shadowColor = "rgba(0,0,0,1)",
+                        a.shadowColor = "rgba(0,0,0,1)",
                         a.shadowOffsetX = 0,
                         a.shadowOffsetY = 0
                 },
