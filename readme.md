@@ -9,6 +9,7 @@ change:
 1、更改背景图为空序列化报错
 
 
+
 #1.0.3
 
 date@2020-05-25
@@ -20,6 +21,7 @@ change:
 1、给每个节点配备deviceId
 
 
+
 #1.0.4
 
 date@2020-05-25
@@ -29,6 +31,7 @@ name@金角大王
 change:
 
 1、序列化的地方补了三个字段，防止填充的时候出现undifined值
+
 
 
 #1.0.5
@@ -44,6 +47,7 @@ change:
 2、新增了replaceStageWithJson,getAllNodes两个方法
 
 3、修改了borderRadius默认值null为0，避免转化的时候出现NaN值，导致replaceStageWithJson方法执行失败
+
 
 
 #1.0.6
@@ -65,3 +69,6 @@ change:
 5、对dragable,selected,showSelected,isMouseOver这四个不进行序列化
 
 6、隐藏线的shadowColor
+
+
+
