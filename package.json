@@ -1,0 +1,11 @@
+{
+  "name": "cztp",
+  "version": "1.0.6",
+  "description": "",
+  "author": "Jin",
+  "license": "MIT",
+  "main": "src/cztp.js",
+  "publishConfig": {
+    "registry": "http://192.168.150.186:11111/repository/npm-internal/"
+  }
+}
