@@ -76,13 +76,23 @@ change:
 
 2、删除所有扩展，因为连初始化元素是node还是TextNode都搞错了。现只保留了源码
 
-3、elementType为link的时候，新增了deviceA.deviceId,deviceZ.deviceId,lineType=link类型
+3、elementType为link的时候，新增了deviceA.deviceId,deviceZ.deviceId,lineType==link类型
 
-4、删除了elementType=displayElement时的diviceId属性，挪到elementType=node类型下，因为link类型等不需要这个属性
+4、删除了elementType==displayElement时的diviceId属性，挪到elementType==node类型下，因为link类型等不需要这个属性
 
 5、对dragable,selected,showSelected,isMouseOver这四个不进行序列化
 
 6、隐藏线的shadowColor
 
 -------------------------
+
+#1.0.7
+
+date@2020-05-28
+
+name@金角大王
+
+change:
+
+1、新增了replaceStageWithJson方法调用的参数（isReplace），如果isReplace == true，全部替换stage，否则只追加
 

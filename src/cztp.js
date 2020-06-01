@@ -133,7 +133,7 @@
                 open_hand: "url(./img/cur/openhand.cur) 8 8, default",     //鼠标 手掌张开样式
                 closed_hand: "url(./img/cur/closedhand.cur) 8 8, default"   //鼠标 手掌蜷起样式
             },
-            replaceStageWithJson: function(it,jsonObj) {
+            replaceStageWithJson: function(it,jsonObj,isReplace) {
               var stage = it.stage
               for (var k in jsonObj) {
                 if (k != 'childs') {
@@ -144,10 +144,12 @@
                 }
               }
               var scenes = jsonObj.childs
-              stage.childs.forEach(function(s) {
-                s.clear()
+
+              if (isReplace) {
+                stage.childs.forEach(function(s) {
+                  s.clear()
+                })
               }
-              )
               return scenes.forEach(function(a) {
                 var b = it.scene
                 b.paintAll = false
