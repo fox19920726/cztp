@@ -86,7 +86,7 @@ change:
 
 -------------------------
 
-#1.0.7
+##1.0.7
 
 date@2020-05-28
 
@@ -96,3 +96,24 @@ change:
 
 1、新增了replaceStageWithJson方法调用的参数（isReplace），如果isReplace == true，全部替换stage，否则只追加
 
+-------------------------
+
+##1.0.8
+
+date@2020-06-09
+
+name@金角大王
+
+change:
+
+1、修改node内设strokeStyle,fillStyle的值
+
+date@2020-06-18
+
+name@金角大王
+
+change:
+
+1、给container自由变动类型增加20内边距
+2、去除container选中时候的样式
+3、container的text的Top_Left，Top_Right的y值都+20

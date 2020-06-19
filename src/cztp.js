@@ -2213,8 +2213,8 @@
                 this.paintSelected = function (a) {
                     0 != this.showSelected && (a.save(),
                         a.beginPath(),
-                        a.strokeStyle = this.strokeStyle || "rgba(255,255,255, 0.9)",
-                        a.fillStyle = this.fillStyle || "rgba(255,255,255,0.7)",
+                        a.strokeStyle = this.strokeStyle || "rgba(168,202,255, 0.9)",
+                        a.fillStyle = this.fillStyle || "rgba(168,202,236,0.7)",
                         a.rect(-this.width / 2 - 3, -this.height / 2 - 3, this.width + 6, this.height + 6),
                         a.fill(),
                         a.stroke(),
@@ -3126,8 +3126,8 @@
             },
                 //被选择时样式绘制
                 this.paintSelected = function (a) {
-                    a.shadowBlur = 10,
-                        a.shadowColor = "rgba(0,0,0,1)",
+                    a.shadowBlur = 6,
+                        a.shadowColor = "rgba(0,0,0,0.4)",
                         a.shadowOffsetX = 0,
                         a.shadowOffsetY = 0
                 },
@@ -3345,15 +3345,15 @@
                     this.width = 100,
                     this.height = 100,
                     this.childs = [],
-                    this.alpha = .5,
+                    this.alpha = 1,
                     this.dragable = !0,
                     this.childDragble = !0,
                     this.visible = !0,
-                    this.fillColor = "10,100,80",
+                    this.fillColor = "255,248,229",
                     this.borderWidth = 0,
                     this.borderColor = "255,255,255",
                     this.borderRadius = 0,
-                    this.font = "12px Consolas",
+                    this.font = "16px Consolas",
                     this.fontColor = "255,255,255",
                     this.text = c,
                     this.textPosition = "Bottom_Center",
@@ -3392,7 +3392,7 @@
                     a && a(this, this.childs)
                 },
                 this.paint = function (a) {
-                    this.visible && (this.layout && this.layout(this, this.childs), a.beginPath(), a.fillStyle = "rgba(" + this.fillColor + "," + this.alpha + ")", null == this.borderRadius || 0 == this.borderRadius ? a.rect(this.x, this.y, this.width, this.height) : a.cztpRoundRect(this.x, this.y, this.width, this.height, this.borderRadius), a.fill(), a.closePath(), this.paintText(a), this.paintBorder(a))
+                    this.visible && (this.layout && this.layout(this, this.childs), a.beginPath(), a.fillStyle = "rgba(" + this.fillColor + "," + this.alpha + ")", null == this.borderRadius || 0 == this.borderRadius ? a.rect(this.x, this.y, this.width, this.height) : a.cztpRoundRect(this.x - 20, this.y - 20, this.width + 40, this.height + 40, this.borderRadius), a.fill(), a.closePath(), this.paintText(a), this.paintBorder(a))
                 },
                 this.paintBorder = function (a) {
                     if (0 != this.borderWidth) {
@@ -3430,11 +3430,11 @@
                     }
                         : "Top_Right" == a ? d = {
                         x: this.x + this.width - b,
-                        y: this.y - c / 2
+                        y: this.y - c / 2 + 20
                     }
                         : "Top_Left" == a ? d = {
                         x: this.x,
-                        y: this.y - c / 2
+                        y: this.y - c / 2 + 20
                     }
                         : "Bottom_Right" == a ? d = {
                         x: this.x + this.width - b,
@@ -3463,10 +3463,10 @@
                 this.paintMouseover = function () {
                 },
                 this.paintSelected = function (a) {
-                    a.shadowBlur = 10,
-                        a.shadowColor = "rgba(0,0,0,1)",
-                        a.shadowOffsetX = 0,
-                        a.shadowOffsetY = 0
+                    // a.shadowBlur = 1,
+                    //     a.shadowColor = "rgba(0,0,0,.1)",
+                    //     a.shadowOffsetX = 0,
+                    //     a.shadowOffsetY = 0
                 }
         }
 
