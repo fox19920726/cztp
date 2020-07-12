@@ -239,7 +239,7 @@
                     // 找出连接点
                     if (a['deviceA'] && a['deviceZ']) {
                       nodes.forEach(function(nodeEle) {
-                        if (nodeEle.elementType == 'node' || nodeEle.elementType == 'TextNode' ) {
+                        if (nodeEle.elementType == 'node' || nodeEle.elementType == 'TextNode' || nodeEle.elementType == 'CircleNode') {
                           if (nodeEle.deviceId == a['deviceA']) { nodeA = nodeEle }
                           if (nodeEle.deviceId == a['deviceZ']) { nodeZ = nodeEle }
                         }
@@ -1368,6 +1368,7 @@
                             c = '{"version":"' + a.version + '",';
                         this.serializedProperties.length
                     }
+
                     return this.serializedProperties.forEach(function (a) {
                         var d = b[a];
                         "string" == typeof d && (d = '"' + d + '"'),
@@ -2466,8 +2467,9 @@
                     this.inLinks = null,
                     this.outLinks = null,
                     this.isAlarmCover=true,
-                    this.imagesrc = null;//调整 增加图片路径属性
-                var d = "deviceId,text,font,fontColor,textPosition,textOffsetX,textOffsetY,borderRadius,isAlarmCover,imagesrc".split(",");
+                    this.imagesrc = null,//调整 增加图片路径属性
+                    this.btnType = '';
+                var d = "btnType,deviceId,text,font,fontColor,textPosition,textOffsetX,textOffsetY,borderRadius,isAlarmCover,imagesrc".split(",");
                 this.serializedProperties = this.serializedProperties.concat(d)
             },
                 //初始化行为
@@ -2691,6 +2693,7 @@
         //对圆形节点CircleNode进行定义
         function f(a) {
             this.initialize(arguments),
+                this.elementType = "CircleNode",
                 this._radius = 20,
                 this.beginDegree = 0,
                 this.endDegree = 2 * Math.PI,
@@ -3360,6 +3363,8 @@
                     this.textOffsetX = 0,
                     this.textOffsetY = 0,
                     this.layout = new a.layout.AutoBoundLayout
+                    var e = 'childNodes'.split(',')
+                    this.serializedProperties = this.serializedProperties.concat(e)
             },
                 this.initialize(c),
                 this.add = function (a) {
@@ -3392,7 +3397,7 @@
                     a && a(this, this.childs)
                 },
                 this.paint = function (a) {
-                    this.visible && (this.layout && this.layout(this, this.childs), a.beginPath(), a.fillStyle = "rgba(" + this.fillColor + "," + this.alpha + ")", null == this.borderRadius || 0 == this.borderRadius ? a.rect(this.x, this.y, this.width, this.height) : a.cztpRoundRect(this.x - 20, this.y - 20, this.width + 40, this.height + 40, this.borderRadius), a.fill(), a.closePath(), this.paintText(a), this.paintBorder(a))
+                    this.visible && (this.layout && this.layout(this, this.childs), a.beginPath(), a.fillStyle = "rgba(" + this.fillColor + "," + this.alpha + ")", null == this.borderRadius || 0 == this.borderRadius ? a.rect(this.x - 20, this.y - 20, this.width + 40, this.height + 40) : a.cztpRoundRect(this.x - 20, this.y - 20, this.width + 40, this.height + 40, this.borderRadius), a.fill(), a.closePath(), this.paintText(a), this.paintBorder(a))
                 },
                 this.paintBorder = function (a) {
                     if (0 != this.borderWidth) {

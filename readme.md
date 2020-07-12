@@ -115,5 +115,23 @@ name@金角大王
 change:
 
 1、给container自由变动类型增加20内边距
+
 2、去除container选中时候的样式
+
 3、container的text的Top_Left，Top_Right的y值都+20
+
+-------------------------
+
+##1.0.9
+
+date@2020-07-02
+
+name@金角大王
+
+change:
+
+1、对node元素新增btnType字段
+
+2、对container进行字段补充，新增了childNode字段，用来解决编辑topo的时候，调用setLocation失败
+
+3、container的内容边距做了调整，x、y各-20，width、height各+40
