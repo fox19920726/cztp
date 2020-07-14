@@ -1124,16 +1124,6 @@
              */
             function m(b) {
                 a.util.isIE || !window.addEventListener ? (b.onmouseout = f, b.onmouseover = e, b.onmousedown = g, b.onmouseup = h, b.onmousemove = i, b.onclick = j, b.ondblclick = k, b.onmousewheel = l, b.touchstart = g, b.touchmove = i, b.touchend = h) : (b.addEventListener("mouseout", f), b.addEventListener("mouseover", e), b.addEventListener("mousedown", g), b.addEventListener("mouseup", h), b.addEventListener("mousemove", i), b.addEventListener("click", j), b.addEventListener("dblclick", k), a.util.isFirefox ? b.addEventListener("DOMMouseScroll", l) : b.addEventListener("mousewheel", l))
-                    // window.addEventListener && (window.addEventListener("keydown", function (b) {
-                    //     n.dispatchEventToScenes("keydown", a.util.cloneEvent(b));
-                    //     var c = b.keyCode;
-                    //     (37 == c || 38 == c || 39 == c || 40 == c) && (b.preventDefault ? b.preventDefault() : (b = b || window.event, b.returnValue = !1))
-                    // }, !0),
-                    //     window.addEventListener("keyup", function (b) {
-                    //         n.dispatchEventToScenes("keyup", a.util.cloneEvent(b));
-                    //         var c = b.keyCode;
-                    //         (37 == c || 38 == c || 39 == c || 40 == c) && (b.preventDefault ? b.preventDefault() : (b = b || window.event, b.returnValue = !1))
-                    //     }, !0))
             }
 
             /*
@@ -3406,7 +3396,7 @@
                             a.lineWidth = this.borderWidth,
                             a.strokeStyle = "rgba(" + this.borderColor + "," + this.alpha + ")";
                         var b = this.borderWidth / 2;
-                        null == this.borderRadius || 0 == this.borderRadius ? a.rect(this.x - b, this.y - b, this.width + this.borderWidth, this.height + this.borderWidth) : a.cztpRoundRect(this.x - b, this.y - b, this.width + this.borderWidth, this.height + this.borderWidth, this.borderRadius),
+                        null == this.borderRadius || 0 == this.borderRadius ? a.rect(this.x - b - 20, this.y - b - 20, this.width + 40 + this.borderWidth, this.height + 40 + this.borderWidth) : a.cztpRoundRect(this.x - b - 20, this.y - b - 20, this.width + 40 + this.borderWidth, this.height + 40 + this.borderWidth, this.borderRadius),
                             a.stroke(),
                             a.closePath()
                     }
