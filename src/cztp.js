@@ -1111,6 +1111,7 @@
              */
             function l(a) {
                 var b = d(a);
+                console.log(b)
                 n.dispatchEventToScenes("mousewheel", b),
                     n.dispatchEvent("mousewheel", b),
                     null != n.wheelZoom && (a.preventDefault ? a.preventDefault() : (a = a || window.event, a.returnValue = !1), 1 == n.eagleEye.visible && n.eagleEye.update())
@@ -1122,17 +1123,17 @@
              * 当浏览器为IE且addEventListener存在时添加键盘按键事件（大键盘的↑、↓、←、→按键）处理
              */
             function m(b) {
-                a.util.isIE || !window.addEventListener ? (b.onmouseout = f, b.onmouseover = e, b.onmousedown = g, b.onmouseup = h, b.onmousemove = i, b.onclick = j, b.ondblclick = k, b.onmousewheel = l, b.touchstart = g, b.touchmove = i, b.touchend = h) : (b.addEventListener("mouseout", f), b.addEventListener("mouseover", e), b.addEventListener("mousedown", g), b.addEventListener("mouseup", h), b.addEventListener("mousemove", i), b.addEventListener("click", j), b.addEventListener("dblclick", k), a.util.isFirefox ? b.addEventListener("DOMMouseScroll", l) : b.addEventListener("mousewheel", l)),
-                    window.addEventListener && (window.addEventListener("keydown", function (b) {
-                        n.dispatchEventToScenes("keydown", a.util.cloneEvent(b));
-                        var c = b.keyCode;
-                        (37 == c || 38 == c || 39 == c || 40 == c) && (b.preventDefault ? b.preventDefault() : (b = b || window.event, b.returnValue = !1))
-                    }, !0),
-                        window.addEventListener("keyup", function (b) {
-                            n.dispatchEventToScenes("keyup", a.util.cloneEvent(b));
-                            var c = b.keyCode;
-                            (37 == c || 38 == c || 39 == c || 40 == c) && (b.preventDefault ? b.preventDefault() : (b = b || window.event, b.returnValue = !1))
-                        }, !0))
+                a.util.isIE || !window.addEventListener ? (b.onmouseout = f, b.onmouseover = e, b.onmousedown = g, b.onmouseup = h, b.onmousemove = i, b.onclick = j, b.ondblclick = k, b.onmousewheel = l, b.touchstart = g, b.touchmove = i, b.touchend = h) : (b.addEventListener("mouseout", f), b.addEventListener("mouseover", e), b.addEventListener("mousedown", g), b.addEventListener("mouseup", h), b.addEventListener("mousemove", i), b.addEventListener("click", j), b.addEventListener("dblclick", k), a.util.isFirefox ? b.addEventListener("DOMMouseScroll", l) : b.addEventListener("mousewheel", l))
+                    // window.addEventListener && (window.addEventListener("keydown", function (b) {
+                    //     n.dispatchEventToScenes("keydown", a.util.cloneEvent(b));
+                    //     var c = b.keyCode;
+                    //     (37 == c || 38 == c || 39 == c || 40 == c) && (b.preventDefault ? b.preventDefault() : (b = b || window.event, b.returnValue = !1))
+                    // }, !0),
+                    //     window.addEventListener("keyup", function (b) {
+                    //         n.dispatchEventToScenes("keyup", a.util.cloneEvent(b));
+                    //         var c = b.keyCode;
+                    //         (37 == c || 38 == c || 39 == c || 40 == c) && (b.preventDefault ? b.preventDefault() : (b = b || window.event, b.returnValue = !1))
+                    //     }, !0))
             }
 
             /*
@@ -1393,7 +1394,7 @@
                 setTimeout(function () {
                     n.mousewheel(function (a) {
                         var b = null == a.wheelDelta ? a.detail : a.wheelDelta;
-                        null != this.wheelZoom && (b > 0 ? this.zoomIn(this.wheelZoom) : this.zoomOut(this.wheelZoom))
+                        null != this.wheelZoom && (b > 0 ? this.zoomOut(this.wheelZoom) : this.zoomIn(this.wheelZoom))
                     }), n.paint()
                 }, 300),
             /**
@@ -3352,7 +3353,7 @@
                     this.dragable = !0,
                     this.childDragble = !0,
                     this.visible = !0,
-                    this.fillColor = "255,248,229",
+                    this.fillColor = "255,255,255", // "255,248,229",
                     this.borderWidth = 0,
                     this.borderColor = "255,255,255",
                     this.borderRadius = 0,
