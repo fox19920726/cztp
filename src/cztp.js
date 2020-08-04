@@ -1019,6 +1019,7 @@
             function d(b) {
                 var c = a.util.getEventPosition(b),
                     d = a.util.getOffsetPosition(n.canvas);
+
                 return c.offsetLeft = c.pageX - d.left,
                     c.offsetTop = c.pageY - d.top,
                     c.x = c.offsetLeft,
@@ -1111,7 +1112,6 @@
              */
             function l(a) {
                 var b = d(a);
-                console.log(b)
                 n.dispatchEventToScenes("mousewheel", b),
                     n.dispatchEvent("mousewheel", b),
                     null != n.wheelZoom && (a.preventDefault ? a.preventDefault() : (a = a || window.event, a.returnValue = !1), 1 == n.eagleEye.visible && n.eagleEye.update())
@@ -2948,14 +2948,15 @@
                 this.getStartPosition = function () {
                     var a = {
                         x: this.nodeA.cx,
-                        y: this.nodeA.cy
+                        y: this.nodeA.cy - 20
                     };
                     return a
                 },
                 //获得终止节点的坐标
                 this.getEndPosition = function () {
                     var a;
-                    return null != this.arrowsRadius && (a = h(this.nodeZ, this.nodeA)),
+                    const { x, y } = h(this.nodeZ, this.nodeA)
+                    return null != this.arrowsRadius && (a = { x, y: y+10}),
                         null == a && (a = {
                             x: this.nodeZ.cx,
                             y: this.nodeZ.cy
