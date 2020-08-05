@@ -2948,7 +2948,7 @@
                 this.getStartPosition = function () {
                     var a = {
                         x: this.nodeA.cx,
-                        y: this.nodeA.cy - 20
+                        y: this.nodeA.cy
                     };
                     return a
                 },
@@ -2956,7 +2956,7 @@
                 this.getEndPosition = function () {
                     var a;
                     const { x, y } = h(this.nodeZ, this.nodeA)
-                    return null != this.arrowsRadius && (a = { x, y: y+10}),
+                    return null != this.arrowsRadius && (a = { x, y }),
                         null == a && (a = {
                             x: this.nodeZ.cx,
                             y: this.nodeZ.cy
@@ -3389,7 +3389,7 @@
                     a && a(this, this.childs)
                 },
                 this.paint = function (a) {
-                    this.visible && (this.layout && this.layout(this, this.childs), a.beginPath(), a.fillStyle = "rgba(" + this.fillColor + "," + this.alpha + ")", null == this.borderRadius || 0 == this.borderRadius ? a.rect(this.x - 20, this.y - 20, this.width + 40, this.height + 40) : a.cztpRoundRect(this.x - 20, this.y - 20, this.width + 40, this.height + 40, this.borderRadius), a.fill(), a.closePath(), this.paintText(a), this.paintBorder(a))
+                    this.visible && (this.layout && this.layout(this, this.childs), a.beginPath(), a.fillStyle = "rgba(" + this.fillColor + "," + this.alpha + ")", null == this.borderRadius || 0 == this.borderRadius ? a.rect(this.x, this.y, this.width, this.height) : a.cztpRoundRect(this.x, this.y, this.width, this.height, this.borderRadius), a.fill(), a.closePath(), this.paintText(a), this.paintBorder(a))
                 },
                 this.paintBorder = function (a) {
                     if (0 != this.borderWidth) {
@@ -3397,7 +3397,7 @@
                             a.lineWidth = this.borderWidth,
                             a.strokeStyle = "rgba(" + this.borderColor + "," + this.alpha + ")";
                         var b = this.borderWidth / 2;
-                        null == this.borderRadius || 0 == this.borderRadius ? a.rect(this.x - b - 20, this.y - b - 20, this.width + 40 + this.borderWidth, this.height + 40 + this.borderWidth) : a.cztpRoundRect(this.x - b - 20, this.y - b - 20, this.width + 40 + this.borderWidth, this.height + 40 + this.borderWidth, this.borderRadius),
+                        null == this.borderRadius || 0 == this.borderRadius ? a.rect(this.x - b, this.y - b, this.width + this.borderWidth, this.height + this.borderWidth) : a.cztpRoundRect(this.x - b, this.y - b, this.width + this.borderWidth, this.height + this.borderWidth, this.borderRadius),
                             a.stroke(),
                             a.closePath()
                     }
@@ -3598,10 +3598,10 @@
                             g = d - c + j.width,
                             h = f - e + j.height
                     }
-                    a.x = c,
-                        a.y = e,
-                        a.width = g,
-                        a.height = h
+                    a.x = c - 20,
+                        a.y = e - 20,
+                        a.width = g + 40,
+                        a.height = h + 60
                 }
             }
         }
