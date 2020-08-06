@@ -107,7 +107,7 @@
      * ctp对象定义
      */
         cztp = {
-            version: "1.0.6",               //版本
+            version: "1.1.4",               //版本
             stage: {},                       //调整 加入stage缓存容器属性，原定义是在stage构造时赋值stage对象但是这么做有缺陷（具体可以看stage构造时的注释）
             zIndex_Container: 1,            //容器层级 默认1
             zIndex_Link: 2,                 //连线层级 默认2
@@ -2459,6 +2459,7 @@
                     this.outLinks = null,
                     this.isAlarmCover=true,
                     this.imagesrc = null,//调整 增加图片路径属性
+                    this.deviceId = "" + Math.ceil(Math.random() * (new Date).getTime()),
                     this.btnType = '';
                 var d = "btnType,deviceId,text,font,fontColor,textPosition,textOffsetX,textOffsetY,borderRadius,isAlarmCover,imagesrc".split(",");
                 this.serializedProperties = this.serializedProperties.concat(d)
@@ -2956,7 +2957,7 @@
                 this.getEndPosition = function () {
                     var a;
                     const { x, y } = h(this.nodeZ, this.nodeA)
-                    return null != this.arrowsRadius && (a = { x, y }),
+                    return null != this.arrowsRadius && (a = { x, y}),
                         null == a && (a = {
                             x: this.nodeZ.cx,
                             y: this.nodeZ.cy
